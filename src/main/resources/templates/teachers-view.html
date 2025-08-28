@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <title>عرض تفاصيل المعلم</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f9f9f9;
+            color: #222;
+            height: 100vh;
+            display: flex;
+        }
+        nav.sidebar {
+            width: 240px;
+            background-color: #1c1c1c;
+            color: #f5f5f5;
+            padding: 25px 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            user-select: none;
+        }
+        nav.sidebar h2 {
+            margin: 0 0 40px;
+            font-size: 1.7rem;
+            font-weight: 700;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+        nav.sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+        nav.sidebar ul li a {
+            display: block;
+            padding: 12px 15px;
+            color: #ddd;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.25s ease;
+            font-size: 1.1rem;
+        }
+        nav.sidebar ul li a.active,
+        nav.sidebar ul li a:hover {
+            background-color: #444;
+            color: #fff;
+        }
+        main.content {
+            flex-grow: 1;
+            background-color: white;
+            margin: 20px;
+            border-radius: 6px;
+            padding: 40px 30px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: #111;
+            overflow-x: auto;
+            font-size: 1.15rem;
+        }
+        main.content h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-align: center;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px 40px;
+            max-width: 700px;
+            margin: auto;
+        }
+        .details-grid p {
+            margin: 6px 0;
+            word-break: break-word;
+        }
+        .details-grid p strong {
+            display: inline-block;
+            min-width: 160px;
+            font-weight: 700;
+            color: #34495e;
+        }
+        button.back-btn {
+            display: block;
+            margin: 40px auto 0 auto;
+            padding: 10px 25px;
+            background-color: #1c1c1c;
+            color: #f5f5f5;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        button.back-btn:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+<nav class="sidebar">
+    <h2>مدرستي الذكية</h2>
+    <ul>
+        <li><a th:href="@{/dashboard}">🏠 لوحة التحكم</a></li>
+        <li><a th:href="@{/teachers}" class="active">👨‍🏫 المعلمون</a></li>
+                <li><a th:href="@{/print}">🖨️ طباعة</a></li>
+
+    </ul>
+</nav>
+
+<main class="content">
+    <h1>تفاصيل المعلم</h1>
+
+    <div class="details-grid" id="teacherDetails">
+        <!-- Teacher details inserted here -->
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='/teachers'">رجوع إلى قائمة المعلمين</button>
+</main>
+
+<script>
+    async function fetchTeacher() {
+        const pathParts = window.location.pathname.split('/');
+        const teacherId = pathParts[pathParts.length - 1];
+
+        try {
+            const response = await fetch(`/api/teachers/${teacherId}`);
+            if (!response.ok) throw new Error('فشل تحميل تفاصيل المعلم.');
+
+            const teacher = await response.json();
+            const container = document.getElementById('teacherDetails');
+
+            container.innerHTML = `
+                <p><strong>الاسم الأول:</strong> ${teacher.firstName || ''}</p>
+                <p><strong>اللقب الأصلي:</strong> ${teacher.originalLastName || ''}</p>
+                <p><strong>اللقب:</strong> ${teacher.lastName || ''}</p>
+                <p><strong>الحالة الاجتماعية:</strong> ${teacher.maritalStatus || ''}</p>
+                <p><strong>عدد الأطفال:</strong> ${teacher.childrenCount ?? ''}</p>
+                <p><strong>العنوان:</strong> ${teacher.address || ''}</p>
+                <p><strong>رقم الهاتف:</strong> ${teacher.phoneNumber || ''}</p>
+                <p><strong>البريد الإلكتروني:</strong> ${teacher.email || ''}</p>
+                <p><strong>الرتبة:</strong> ${teacher.rank || ''}</p>
+                <p><strong>الحالة الوظيفية:</strong> ${teacher.status || ''}</p>
+                <p><strong>المؤسسة الحالية:</strong> ${teacher.currentInstitution || ''}</p>
+                <p><strong>المؤسسة السابقة:</strong> ${teacher.previousInstitution || ''}</p>
+                <p><strong>تاريخ الاستئناف:</strong> ${teacher.resumptionDate || ''}</p>
+                <p><strong>رقم قرار التعيين:</strong> ${teacher.appointmentDecisionNumber || ''}</p>
+                <p><strong>تاريخ قرار التعيين:</strong> ${teacher.appointmentDecisionDate || ''}</p>
+                <p><strong>رقم الحساب البريدي:</strong> ${teacher.postalAccountNumber || ''}</p>
+                <p><strong>مفتاح الحساب البريدي:</strong> ${teacher.postalAccountKey || ''}</p>
+                <p><strong>رقم الضمان الاجتماعي:</strong> ${teacher.socialSecurityNumber || ''}</p>
+            `;
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    fetchTeacher();
+</script>
+</body>
+</html>
