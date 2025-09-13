@@ -149,7 +149,12 @@
 
         <label for="lastName">اللقب:</label>
         <input type="text" id="lastName" name="lastName" required />
+        <label for="birthDate">تاريخ الميلاد:</label>
+        <input type="date" id="birthDate" name="birthDate" />
 
+        <label for="birthPlace">مكان الميلاد:</label>
+        <input type="text" id="birthPlace" name="birthPlace" />
+        
         <label for="maritalStatus">الحالة الاجتماعية:</label>
         <input type="text" id="maritalStatus" name="maritalStatus" />
 
@@ -179,6 +184,10 @@
 
         <label for="resumptionDate">تاريخ الاستئناف:</label>
         <input type="date" id="resumptionDate" name="resumptionDate" />
+
+        <label for="appointmentCode">رقم التعيين:</label>
+        <input type="text" id="appointmentCode" name="appointmentCode" />
+
 
         <label for="appointmentDecisionNumber">رقم قرار التعيين:</label>
         <input type="text" id="appointmentDecisionNumber" name="appointmentDecisionNumber" />
@@ -218,6 +227,8 @@
             document.getElementById('maritalStatus').value = t.maritalStatus || '';
             document.getElementById('childrenCount').value = t.childrenCount ?? '';
             document.getElementById('address').value = t.address || '';
+            document.getElementById('birthDate').value = t.birthDate || '';
+            document.getElementById('birthPlace').value = t.birthPlace || '';
             document.getElementById('phoneNumber').value = t.phoneNumber || '';
             document.getElementById('email').value = t.email || '';
             document.getElementById('rank').value = t.rank || '';
@@ -225,6 +236,7 @@
             document.getElementById('currentInstitution').value = t.currentInstitution || '';
             document.getElementById('previousInstitution').value = t.previousInstitution || '';
             document.getElementById('resumptionDate').value = t.resumptionDate || '';
+            document.getElementById('appointmentCode').value = t.appointmentCode || '';
             document.getElementById('appointmentDecisionNumber').value = t.appointmentDecisionNumber || '';
             document.getElementById('appointmentDecisionDate').value = t.appointmentDecisionDate || '';
             document.getElementById('postalAccountNumber').value = t.postalAccountNumber || '';
@@ -254,6 +266,7 @@
             currentInstitution: document.getElementById('currentInstitution').value,
             previousInstitution: document.getElementById('previousInstitution').value,
             resumptionDate: document.getElementById('resumptionDate').value,
+            appointmentCode: document.getElementById('appointmentCode').value,
             appointmentDecisionNumber: document.getElementById('appointmentDecisionNumber').value,
             appointmentDecisionDate: document.getElementById('appointmentDecisionDate').value,
             postalAccountNumber: document.getElementById('postalAccountNumber').value,

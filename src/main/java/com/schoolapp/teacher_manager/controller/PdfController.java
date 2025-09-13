@@ -51,48 +51,63 @@ public class PdfController {
 
     static {
         // Installation report coordinates - fill with your current coords
-        INSTALLATION_COORDS.put("lastName", new Coordinates(470, 841 - 383));
-        INSTALLATION_COORDS.put("originalLastName", new Coordinates(180, 841 - 383));
-        INSTALLATION_COORDS.put("firstName", new Coordinates(470, 841 - 408));
-        INSTALLATION_COORDS.put("maritalStatus", new Coordinates(436, 841 - 433));
-        INSTALLATION_COORDS.put("childrenCount", new Coordinates(180, 841 - 433));
-        INSTALLATION_COORDS.put("address", new Coordinates(450, 841 - 457));
-        INSTALLATION_COORDS.put("phoneNumber", new Coordinates(436, 841 - 531));
-        INSTALLATION_COORDS.put("email", new Coordinates(340, 841 - 555));
-        INSTALLATION_COORDS.put("rank", new Coordinates(500, 841 - 580));
-        INSTALLATION_COORDS.put("currentInstitution", new Coordinates(436, 841 - 630));
-        INSTALLATION_COORDS.put("previousInstitution", new Coordinates(436, 841 - 653));
-        INSTALLATION_COORDS.put("appointmentDecisionNumber", new Coordinates(352, 841 - 335));
-        INSTALLATION_COORDS.put("appointmentDecisionDate", new Coordinates(156, 841 - 335));
-        INSTALLATION_COORDS.put("postalAccountNumber", new Coordinates(436, 841 - 482));
-        INSTALLATION_COORDS.put("postalAccountKey", new Coordinates(180, 841 - 482));
-        INSTALLATION_COORDS.put("socialSecurityNumber", new Coordinates(436, 841 - 506));
-        INSTALLATION_COORDS.put("resumptionDate", new Coordinates(120, 510));
-        INSTALLATION_COORDS.put("todayDate1", new Coordinates(212, 841 - 358));  // example for today date #1
-        INSTALLATION_COORDS.put("todayDate2", new Coordinates(170, 841 - 701));  // example for today date #2
+        INSTALLATION_COORDS.put("lastName", new Coordinates(470, 841 - 383+70));
+        INSTALLATION_COORDS.put("originalLastName", new Coordinates(180, 841 - 383+70));
+        INSTALLATION_COORDS.put("firstName", new Coordinates(470, 841 - 408+65));
+        INSTALLATION_COORDS.put("birthDate", new Coordinates(350, 841 - 408+35));
+        INSTALLATION_COORDS.put("birthPlace", new Coordinates(420, 841 - 408+35));
+        INSTALLATION_COORDS.put("maritalStatus", new Coordinates(436, 841 - 433+30));
+        INSTALLATION_COORDS.put("childrenCount", new Coordinates(180, 841 - 433+30));
+        INSTALLATION_COORDS.put("address", new Coordinates(450, 841 - 457+25));
+        INSTALLATION_COORDS.put("phoneNumber", new Coordinates(436, 841 - 531+9));
+        INSTALLATION_COORDS.put("email", new Coordinates(340, 841 - 555+5));
+        INSTALLATION_COORDS.put("rank", new Coordinates(500, 841 - 580-2));
+        INSTALLATION_COORDS.put("currentInstitution", new Coordinates(436, 841 - 630-40));
+        INSTALLATION_COORDS.put("previousInstitution", new Coordinates(436, 841 - 653+10));
+        INSTALLATION_COORDS.put("appointmentDecisionNumber", new Coordinates(352, 841 - 335+82));
+        INSTALLATION_COORDS.put("appointmentDecisionDate", new Coordinates(156, 841 - 335+82));
+        INSTALLATION_COORDS.put("postalAccountNumber", new Coordinates(420, 841 - 482+20));
+        INSTALLATION_COORDS.put("postalAccountKey", new Coordinates(180, 841 - 482+20));
+        INSTALLATION_COORDS.put("socialSecurityNumber", new Coordinates(436, 841 - 506+15));
+        INSTALLATION_COORDS.put("todayDate2", new Coordinates(160, 841 - 701-5));  // example for today date #2
+INSTALLATION_COORDS.put("staticText1", new Coordinates(461, 841 - 408+65+100-35-4)); // سعودي
+INSTALLATION_COORDS.put("staticText3a", new Coordinates(330, 841 - 408+65+100-35-4)); // الاخوة مسعودي
+INSTALLATION_COORDS.put("staticText3b", new Coordinates(510, 841 - 408+65+225)); // الاخوة مسعودي (again)
+INSTALLATION_COORDS.put("schoolYears", new Coordinates(297, 841 - 180-34)); // 2026 2025
+INSTALLATION_COORDS.put("appointmentCode", new Coordinates(210, 841 - 408+65+100-35-4)); // 2026 2025
 
         // TODO: Add actual resume report coordinates here
         // For example:
         // RESUME_COORDS.put("lastName", new Coordinates(x, y));
         // RESUME_COORDS.put("originalLastName", new Coordinates(x, y));
         // ... and so on
-        RESUME_COORDS.put("lastName", new Coordinates(470, 841 - 363));
-        RESUME_COORDS.put("originalLastName", new Coordinates(180, 841 - 363));
-        RESUME_COORDS.put("firstName", new Coordinates(470, 841 -   408+18));
-        RESUME_COORDS.put("maritalStatus", new Coordinates(436, 841 -   433+15));
-        RESUME_COORDS.put("childrenCount", new Coordinates(180, 841 -   433+15));                 
-        RESUME_COORDS.put("address", new Coordinates(450, 841 -   457+12));
-        RESUME_COORDS.put("phoneNumber", new Coordinates(436, 841 -   531+5));
-        RESUME_COORDS.put("email", new Coordinates(340, 841 -   555));                  
-        RESUME_COORDS.put("rank", new Coordinates(500, 841 -   580));
-        RESUME_COORDS.put("currentInstitution", new Coordinates(436, 841 -   630-5));         
-        RESUME_COORDS.put("postalAccountNumber", new Coordinates(436, 841 -   482+10));
-        RESUME_COORDS.put("postalAccountKey", new Coordinates(180, 841 -    482+10));
-        RESUME_COORDS.put("socialSecurityNumber", new Coordinates(436, 841 -    506+8)); 
+        RESUME_COORDS.put("lastName", new Coordinates(470, 841 - 363+90));
+        RESUME_COORDS.put("originalLastName", new Coordinates(180, 841 - 363+90));
+        RESUME_COORDS.put("firstName", new Coordinates(470, 841 -   408+18+90));
+        RESUME_COORDS.put("birthPlace", new Coordinates(410, 841 -   408+18+60+2));
+        RESUME_COORDS.put("birthDate", new Coordinates(340, 841 -   408+18+60+2));
+
+        RESUME_COORDS.put("firstName", new Coordinates(470, 841 -   408+18+90));
+        RESUME_COORDS.put("maritalStatus", new Coordinates(436, 841 -   433+15+60));
+        RESUME_COORDS.put("childrenCount", new Coordinates(180, 841 -   433+15+60));                 
+        RESUME_COORDS.put("address", new Coordinates(450, 841 -   457+12+60));
+        RESUME_COORDS.put("phoneNumber", new Coordinates(436, 841 -   531+5+60));
+        RESUME_COORDS.put("email", new Coordinates(340, 841 -   555+60));                  
+        RESUME_COORDS.put("rank", new Coordinates(500, 841 -   580+60));
+        RESUME_COORDS.put("currentInstitution", new Coordinates(436, 841 -   630-5+60-4));         
+        RESUME_COORDS.put("postalAccountNumber", new Coordinates(436-20, 841 -   482+10+60));
+        RESUME_COORDS.put("postalAccountKey", new Coordinates(180, 841 -    482+10+60));
+        RESUME_COORDS.put("socialSecurityNumber", new Coordinates(436, 841 -    506+8+60)); 
         
         //continue heeeeeeeeeeeere
-        RESUME_COORDS.put("resumptionDate", new Coordinates(376, 841 -   650-11));
-        RESUME_COORDS.put("todayDate2", new Coordinates(110, 841 -   701-16));  // example for today date #2               
+        RESUME_COORDS.put("resumptionDate", new Coordinates(376, 841 -   650-11+60-5));
+        RESUME_COORDS.put("todayDate2", new Coordinates(150, 841 -   701-16+60));  // example for today date #2
+        
+        RESUME_COORDS.put("staticText1", new Coordinates(461, 841 - 408+65+100-35-4+10+30-1)); // سعودي
+RESUME_COORDS.put("staticText3a", new Coordinates(260, 841 - 408+65+100-35-4+10+30-1)); // الاخوة مسعودي
+RESUME_COORDS.put("staticText3b", new Coordinates(510, 841 - 408+65+225)); // الاخوة مسعودي (again)
+RESUME_COORDS.put("schoolYears", new Coordinates(297, 841 - 180-34+10)); // 2026 2025
+
     }
 
     @PostMapping(value = "/generate", produces = MediaType.APPLICATION_PDF_VALUE)
@@ -123,6 +138,8 @@ public class PdfController {
                     writeField(cs, font, shapeArabic(teacher.getLastName()), "lastName", coords, FONT_SIZE);
                     writeField(cs, font, shapeArabic(teacher.getOriginalLastName()), "originalLastName", coords, FONT_SIZE);
                     writeField(cs, font, shapeArabic(teacher.getFirstName()), "firstName", coords, FONT_SIZE);
+                    writeField(cs, font, teacher.getBirthDate() != null ? teacher.getBirthDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) : "", "birthDate", coords, FONT_SIZE);
+                    writeField(cs, font, shapeArabic(teacher.getBirthPlace()), "birthPlace", coords, FONT_SIZE);
                     writeField(cs, font, shapeArabic(teacher.getMaritalStatus()), "maritalStatus", coords, FONT_SIZE);
                     writeField(cs, font, String.valueOf(teacher.getChildrenCount()), "childrenCount", coords, FONT_SIZE);
                     writeField(cs, font, shapeArabic(teacher.getAddress()), "address", coords, FONT_SIZE);
@@ -132,6 +149,12 @@ public class PdfController {
                     writeField(cs, font, shapeArabic(teacher.getCurrentInstitution()), "currentInstitution", coords, FONT_SIZE);
                     writeField(cs, font, shapeArabic(teacher.getPreviousInstitution()), "previousInstitution", coords, FONT_SIZE);
                     writeField(cs, font, teacher.getAppointmentDecisionNumber(), "appointmentDecisionNumber", coords, FONT_SIZE);
+writeField(cs, font, shapeArabic("سعودي دليلة"), "staticText1", coords, FONT_SIZE);
+writeField(cs, font, shapeArabic("الاخوة مسعودي"), "staticText3a", coords, FONT_SIZE);
+writeField(cs, font, shapeArabic("الاخوة مسعودي"), "staticText3b", coords, FONT_SIZE);
+writeField(cs, font, "2026  2025", "schoolYears", coords, FONT_SIZE);
+
+                    writeField(cs, font, teacher.getAppointmentCode(), "appointmentCode", coords, FONT_SIZE);
 
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     String appointmentDecisionDateStr = teacher.getAppointmentDecisionDate() != null

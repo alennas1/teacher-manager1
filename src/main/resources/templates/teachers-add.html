@@ -163,6 +163,12 @@
         <label for="lastName">اللقب:</label>
         <input type="text" id="lastName" name="lastName" required />
 
+        <label for="birthDate">تاريخ الميلاد:</label>
+<input type="date" id="birthDate" name="birthDate" />
+
+<label for="birthPlace">مكان الميلاد:</label>
+<input type="text" id="birthPlace" name="birthPlace" />
+
         <label for="maritalStatus">الحالة الاجتماعية:</label>
         <input type="text" id="maritalStatus" name="maritalStatus" />
 
@@ -192,12 +198,14 @@
 
         <label for="resumptionDate">تاريخ الاستئناف:</label>
         <input type="date" id="resumptionDate" name="resumptionDate" />
+<label for="appointmentCode">رقم التعيين:</label>
+<input type="text" id="appointmentCode" name="appointmentCode" />
 
-        <label for="appointmentDecisionNumber">رقم قرار التعيين:</label>
-        <input type="text" id="appointmentDecisionNumber" name="appointmentDecisionNumber" />
+<label for="appointmentDecisionNumber">رقم قرار التعيين:</label>
+<input type="text" id="appointmentDecisionNumber" name="appointmentDecisionNumber" />
 
-        <label for="appointmentDecisionDate">تاريخ قرار التعيين:</label>
-        <input type="date" id="appointmentDecisionDate" name="appointmentDecisionDate" />
+<label for="appointmentDecisionDate">تاريخ قرار التعيين:</label>
+<input type="date" id="appointmentDecisionDate" name="appointmentDecisionDate" />
 
         <label for="postalAccountNumber">رقم الحساب البريدي:</label>
         <input type="text" id="postalAccountNumber" name="postalAccountNumber" />
@@ -236,6 +244,8 @@
             firstName: document.getElementById('firstName').value,
             originalLastName: document.getElementById('originalLastName').value,
             lastName: document.getElementById('lastName').value,
+            birthDate: document.getElementById('birthDate').value,
+            birthPlace: document.getElementById('birthPlace').value,
             maritalStatus: document.getElementById('maritalStatus').value,
             childrenCount: parseInt(document.getElementById('childrenCount').value) || null,
             address: document.getElementById('address').value,
@@ -248,6 +258,7 @@
             resumptionDate: document.getElementById('resumptionDate').value,
             appointmentDecisionNumber: document.getElementById('appointmentDecisionNumber').value,
             appointmentDecisionDate: document.getElementById('appointmentDecisionDate').value,
+            appointmentCode:document.getElementById('appointmentCode').value,
             postalAccountNumber: document.getElementById('postalAccountNumber').value,
             postalAccountKey: document.getElementById('postalAccountKey').value,
             socialSecurityNumber: document.getElementById('socialSecurityNumber').value

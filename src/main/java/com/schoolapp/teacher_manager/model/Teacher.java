@@ -21,6 +21,8 @@ public class Teacher {
     private String maritalStatus;
     private Integer childrenCount;
 
+    private LocalDate birthDate;
+    private String birthPlace;
     // Contact Info
     private String address;
     private String phoneNumber;
@@ -34,7 +36,8 @@ public class Teacher {
     private LocalDate resumptionDate;
     private String appointmentDecisionNumber;
     private LocalDate appointmentDecisionDate;
-
+    private LocalDate appointmentDate;
+    private String appointmentCode;
     // Official Numbers
     private String postalAccountNumber;
     private String postalAccountKey;
@@ -101,4 +104,13 @@ public class Teacher {
 
     public String getSocialSecurityNumber() { return socialSecurityNumber; }
     public void setSocialSecurityNumber(String socialSecurityNumber) { this.socialSecurityNumber = socialSecurityNumber; }
+    public LocalDate getBirthDate() { return birthDate; }
+    public void setBirthDate(LocalDate birthDate) { this.birthDate = birthDate;}
+    public String getBirthPlace() { return birthPlace; }
+    public void setBirthPlace(String birthPlace) { this.birthPlace = birthPlace; }
+
+    public LocalDate getAppointmentDate() { return appointmentDate; }
+    public void setAppointmentDate(LocalDate appointmentDate) { this.appointmentDate = appointmentDate; }
+    public String getAppointmentCode() { return appointmentCode; }
+    public void setAppointmentCode(String appointmentCode) { this.appointmentCode = appointmentCode;}
 }

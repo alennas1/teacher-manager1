@@ -60,13 +60,40 @@ public class TeacherController {
         return teacher;
     }
 
-    @PutMapping("/{id}")
-    @ResponseBody
-    public Teacher updateTeacher(@PathVariable Long id, @RequestBody Teacher teacher) {
-        teacher.setId(id);
-        teacherService.saveTeacher(teacher);
-        return teacher;
+  @PutMapping("/{id}")
+@ResponseBody
+public Teacher updateTeacher(@PathVariable Long id, @RequestBody Teacher updatedTeacher) {
+    Teacher existingTeacher = teacherService.getTeacherById(id);
+    if (existingTeacher == null) {
+        throw new RuntimeException("Teacher not found");
     }
+
+    // Update only non-null fields
+    if (updatedTeacher.getLastName() != null) existingTeacher.setLastName(updatedTeacher.getLastName());
+    if (updatedTeacher.getOriginalLastName() != null) existingTeacher.setOriginalLastName(updatedTeacher.getOriginalLastName());
+    if (updatedTeacher.getFirstName() != null) existingTeacher.setFirstName(updatedTeacher.getFirstName());
+    if (updatedTeacher.getBirthDate() != null) existingTeacher.setBirthDate(updatedTeacher.getBirthDate());
+    if (updatedTeacher.getBirthPlace() != null) existingTeacher.setBirthPlace(updatedTeacher.getBirthPlace());
+    if (updatedTeacher.getMaritalStatus() != null) existingTeacher.setMaritalStatus(updatedTeacher.getMaritalStatus());
+    if (updatedTeacher.getChildrenCount() != null) existingTeacher.setChildrenCount(updatedTeacher.getChildrenCount());
+    if (updatedTeacher.getAddress() != null) existingTeacher.setAddress(updatedTeacher.getAddress());
+    if (updatedTeacher.getPostalAccountNumber() != null) existingTeacher.setPostalAccountNumber(updatedTeacher.getPostalAccountNumber());
+    if (updatedTeacher.getPostalAccountKey() != null) existingTeacher.setPostalAccountKey(updatedTeacher.getPostalAccountKey());
+    if (updatedTeacher.getSocialSecurityNumber() != null) existingTeacher.setSocialSecurityNumber(updatedTeacher.getSocialSecurityNumber());
+    if (updatedTeacher.getPhoneNumber() != null) existingTeacher.setPhoneNumber(updatedTeacher.getPhoneNumber());
+    if (updatedTeacher.getEmail() != null) existingTeacher.setEmail(updatedTeacher.getEmail());
+    if (updatedTeacher.getRank() != null) existingTeacher.setRank(updatedTeacher.getRank());
+    if (updatedTeacher.getCurrentInstitution() != null) existingTeacher.setCurrentInstitution(updatedTeacher.getCurrentInstitution());
+    if (updatedTeacher.getPreviousInstitution() != null) existingTeacher.setPreviousInstitution(updatedTeacher.getPreviousInstitution());
+    if (updatedTeacher.getResumptionDate() != null) existingTeacher.setResumptionDate(updatedTeacher.getResumptionDate());
+    if (updatedTeacher.getAppointmentDecisionNumber() != null) existingTeacher.setAppointmentDecisionNumber(updatedTeacher.getAppointmentDecisionNumber());
+    if (updatedTeacher.getAppointmentDecisionDate() != null) existingTeacher.setAppointmentDecisionDate(updatedTeacher.getAppointmentDecisionDate());
+    if (updatedTeacher.getAppointmentDate() != null) existingTeacher.setAppointmentDate(updatedTeacher.getAppointmentDate());
+    if (updatedTeacher.getAppointmentCode() != null) existingTeacher.setAppointmentCode(updatedTeacher.getAppointmentCode());
+    teacherService.saveTeacher(existingTeacher);
+    return existingTeacher;
+}
+
 
     @DeleteMapping("/{id}")
     @ResponseBody
@@ -102,6 +129,8 @@ public ResponseEntity<Void> bulkDelete(@RequestBody List<Long> ids) {
                 teacher.setLastName(getStringCellValue(row, 1));
                 teacher.setOriginalLastName(getStringCellValue(row, 2));
                 teacher.setFirstName(getStringCellValue(row, 3));
+                teacher.setBirthDate(getLocalDateCellValue(row, 4));
+                teacher.setBirthPlace(getStringCellValue(row, 5));
                 teacher.setMaritalStatus(getStringCellValue(row, 6));
                 teacher.setChildrenCount(getIntegerCellValue(row, 7));
                 teacher.setAddress(getStringCellValue(row, 8));
