@@ -55,7 +55,7 @@ public class PdfController {
         INSTALLATION_COORDS.put("originalLastName", new Coordinates(180, 841 - 383+70));
         INSTALLATION_COORDS.put("firstName", new Coordinates(470, 841 - 408+65));
         INSTALLATION_COORDS.put("birthDate", new Coordinates(420, 841 - 408+35));
-        INSTALLATION_COORDS.put("birthPlace", new Coordinates(350, 841 - 408+35));
+        INSTALLATION_COORDS.put("birthPlace", new Coordinates(300, 841 - 408+35));
         INSTALLATION_COORDS.put("maritalStatus", new Coordinates(436, 841 - 433+30));
         INSTALLATION_COORDS.put("childrenCount", new Coordinates(180, 841 - 433+30));
         INSTALLATION_COORDS.put("address", new Coordinates(450, 841 - 457+25));
@@ -84,7 +84,7 @@ INSTALLATION_COORDS.put("appointmentCode", new Coordinates(210, 841 - 408+65+100
         RESUME_COORDS.put("lastName", new Coordinates(470, 841 - 363+90));
         RESUME_COORDS.put("originalLastName", new Coordinates(180, 841 - 363+90));
         RESUME_COORDS.put("firstName", new Coordinates(470, 841 -   408+18+90));
-        RESUME_COORDS.put("birthPlace", new Coordinates(340, 841 -   408+18+60+2));
+        RESUME_COORDS.put("birthPlace", new Coordinates(300, 841 -   408+18+60+2));
         RESUME_COORDS.put("birthDate", new Coordinates(410, 841 -   408+18+60+2));
 
         RESUME_COORDS.put("firstName", new Coordinates(470, 841 -   408+18+90));
