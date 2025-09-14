@@ -142,7 +142,6 @@ RESUME_COORDS.put("schoolYears", new Coordinates(297, 841 - 180-34+10)); // 2026
                     writeField(cs, font, shapeArabic(teacher.getBirthPlace()), "birthPlace", coords, FONT_SIZE);
                     writeField(cs, font, shapeArabic(teacher.getMaritalStatus()), "maritalStatus", coords, FONT_SIZE);
                     writeField(cs, font, teacher.getChildrenCount() != null ? String.valueOf(teacher.getChildrenCount()) : "00", "childrenCount", coords, FONT_SIZE);
-                    writeField(cs, font, String.valueOf(teacher.getChildrenCount()), "childrenCount", coords, FONT_SIZE);
                     writeField(cs, font, shapeArabic(teacher.getAddress()), "address", coords, FONT_SIZE);
                     writeField(cs, font, teacher.getPhoneNumber(), "phoneNumber", coords, FONT_SIZE);
                     writeField(cs, font, teacher.getEmail(), "email", coords, FONT_SIZE);
