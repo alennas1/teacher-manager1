@@ -257,7 +257,9 @@
             originalLastName: document.getElementById('originalLastName').value,
             lastName: document.getElementById('lastName').value,
             maritalStatus: document.getElementById('maritalStatus').value,
-            childrenCount: parseInt(document.getElementById('childrenCount').value) || null,
+            childrenCount: document.getElementById('childrenCount').value === '' 
+               ? null 
+               : parseInt(document.getElementById('childrenCount').value),
             address: document.getElementById('address').value,
             phoneNumber: document.getElementById('phoneNumber').value,
             email: document.getElementById('email').value,
