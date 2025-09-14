@@ -260,6 +260,10 @@
             childrenCount: document.getElementById('childrenCount').value === '' 
                ? null 
                : parseInt(document.getElementById('childrenCount').value),
+            birthPlace: document.getElementById('birthPlace').value || null,
+            birthDate: document.getElementById('birthDate').value === '' 
+            ? null 
+            : document.getElementById('birthDate').value,
             address: document.getElementById('address').value,
             phoneNumber: document.getElementById('phoneNumber').value,
             email: document.getElementById('email').value,
